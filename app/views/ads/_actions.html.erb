@@ -1,5 +1,5 @@
 <% if can?(:update, ad) || can?(:bump, ad) %>
-  <ul class="ad_actions">
+  <ul class="nav nav-pills">
     <% if can?(:update, ad) %>
       <li>
         <%= link_to ads_edit_path(ad.id) do %>

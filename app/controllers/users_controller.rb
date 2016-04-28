@@ -4,10 +4,7 @@ class UsersController < ApplicationController
   def listads
     # ads lists for user
     @user = User.find(params[:id])
-    @ads = @user.ads
-                .includes(:user)
-                .public_send(status_scope)
-                .paginate(:page => params[:page])
+    redirect_to profile_path(username: @user.username)
   end
 
   # GET '/profile/:username'
@@ -18,6 +15,10 @@ class UsersController < ApplicationController
       # not username, but ID
       @user = User.find(params[:username])
     end
+    @ads = @user.ads
+                .includes(:user)
+                .public_send(status_scope)
+                .paginate(:page => params[:page])
   end
 
 end

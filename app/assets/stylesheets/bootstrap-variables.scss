@@ -1,0 +1,31 @@
+
+
+// Colors
+$brand-primary:         #00ACCF;
+
+.nav-pills {
+  margin-top: 1em; 
+  margin-bottom: 1em; 
+}
+
+.nav-pills > .active > a, .nav-pills > .active > a:hover, .nav-pills > li > a:hover {
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 0px;
+  border-bottom-width: 4px;
+  border-bottom-style: solid;
+  border-bottom-color: #27ae60;
+  color: #000 !important;
+  background-color: transparent !important;
+}
+
+.nav-pills > li > a{
+  border-radius:0px;
+}
+
+.pagination {
+  margin-left: auto;
+  margin-right: auto;
+  display: block; 
+  text-align: center;
+}

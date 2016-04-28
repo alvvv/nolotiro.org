@@ -13,6 +13,7 @@ class MessagesController < ApplicationController
     @messages = @messages.sort_by {|m| m.messages.last.created_at}.reverse
     @messages = @messages.paginate(:page => params[:page], :total_entries => @messages.to_a.size)
     session[:last_mailbox] = @box
+    @user = current_user
   end
 
   def new

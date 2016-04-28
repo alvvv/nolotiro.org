@@ -11,12 +11,12 @@
     <% end %>
   </h2>
   <h1><%= @ad.title %></h1>
+  <%= render "ads/actions", ad: @ad %>
 </div>
 
 <div id="main" class="row">
   <div class="span-12">
     <div class="ad_excerpt_show">
-      <%= render "ads/actions", ad: @ad %>
 
       <% if @ad.image.exists? %>
         <div class="ad_list_image">
@@ -37,7 +37,7 @@
       </div>
 
       <%= t('nlt.are_you_interested') %>
-      <%= link_to message_new_with_subject_path(user_id: @ad.user.id, subject: @ad.title.parameterize), :class => "world_link" do %>
+      <%= link_to message_new_with_subject_path(user_id: @ad.user.id, subject: @ad.title.parameterize), class: "btn btn-info" do %>
         <%= t('nlt.send_a_private_message') %>
         <%= image_tag "email_send.png", :alt => t('nlt.send_a_message') %>
       <% end %>

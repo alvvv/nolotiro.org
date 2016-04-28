@@ -1,0 +1,14 @@
+<% unless @user.friends.count == 0 %>
+  <div>
+  <h4><%= t('nlt.friends') %>:</h4>
+  <ul>
+    <% @user.friends.each do |friend| %>
+      <li class="list-group-item">
+        <%= link_to friend.username, profile_path(friend.username) %>
+      </li>
+    <% end %>
+  </ul>
+  <br>
+  </div>
+<% end %>
+

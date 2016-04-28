@@ -55,4 +55,11 @@ module ApplicationHelper
     end
   end
 
+  def cp(*paths)
+    # http://stackoverflow.com/a/12119719
+    active = false
+    paths.each { |path| active ||= current_page?(path) }
+    active ? 'active' : nil
+  end
+
 end
