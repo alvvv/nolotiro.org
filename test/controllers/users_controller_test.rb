@@ -21,7 +21,8 @@ class UsersControllerTest < ActionController::TestCase
 
   test "should get user ad list" do
     get :listads, id: @user.id 
-    assert_response :success
+    assert_response :redirect
+    assert_redirected_to profile_path(@user.username)
   end
 
 end

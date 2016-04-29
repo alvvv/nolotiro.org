@@ -1,5 +1,5 @@
 %ul.nav.nav-pills.nav-justified
-  %li{ class: cp(mailboxer_messages_path(box: 'inbox'), mailboxer_messages_path(box: nil)) }
+  %li{ class: cp( mailboxer_messages_path(box: 'inbox') ) }
     = link_to t('nlt.messages_tabs.inbox'), ( mailboxer_messages_path(box: 'inbox') || mailboxer_messages_path ) 
   %li{ class: cp( mailboxer_messages_path(box: 'sent') ) }
     = link_to t('nlt.messages_tabs.sent'), mailboxer_messages_path(box: 'sent')

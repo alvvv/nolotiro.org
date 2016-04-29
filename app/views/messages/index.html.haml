@@ -3,9 +3,8 @@
 
 #default_header_section
   %h1=title
-  %h2=link_to(t('nlt.profile'), profile_path(current_user.username))
 #main.row
-  .col-md-10#list-messages-profile
+  .span-17#list-messages-profile
     = render partial: "messages/tabmessages", locals: {box: @box}
     - if @search
       %h2=t('mailboxer.search', search: @search)
@@ -40,6 +39,6 @@
 
     = render partial: "partials/google_adsense", locals: { class_name: "mobile google_adsense_336_280", ad_slot: "7225596067"}
 
-  .col-md-2
+  .span-5
     = render partial: "users/actions"
     = render partial: "partials/google_adsense", locals: { class_name: "google_adsense_600_160", ad_slot: "6783776462"}

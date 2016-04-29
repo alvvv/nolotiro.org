@@ -4,8 +4,7 @@
 </div>
 
 <div id="main">
-  <div class="span-18">
-    <%= render partial: "users/tabnav", locals: {user: @user} %>
+  <div class="span-17">
     <div class="ad_excerpt">
 
       <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
@@ -36,5 +35,8 @@
       </fieldset>
 
     </div>
+  </div>
+  <div class="span-5">
+    <%= render partial: "users/actions" %>
   </div>
 </div>

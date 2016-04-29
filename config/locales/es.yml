@@ -368,9 +368,9 @@ es:
       title: Acerca de nolotiro.org
     access_here: accede aquí
     admin:
-      become_user: "[ADMIN] Cambiar a este usuario"
-      lock_user: "[ADMIN] Bloquear a este usuario"
-      unlock_user: "[ADMIN] Desbloquear a este usuario"
+      become_user: "[ADMIN] Cambiar"
+      lock_user: "[ADMIN] Bloquear"
+      unlock_user: "[ADMIN] Desbloquear"
     ads:
       bumped: Hemos republicado el anuncio
       created: Hemos creado el anuncio
@@ -511,8 +511,8 @@ es:
     profile: perfil
     profile_actions:
       friend:
-        add: agregar %{username} a tu lista de amigos
-        delete: eliminar %{username} de tu lista de amigos
+        add: Agregar amigo
+        delete: Quitar amigo
     profile_edit: Editar perfil
     publish_ad: 'Publicando anuncio '
     publish_ad_on: Publicar anuncio en %{woeid}
@@ -534,7 +534,7 @@ es:
     searching_on_html: Buscando <i>%{q}</i> en
     send: Enviar
     send_a_message: "+ Envía un mensaje privado al anunciante"
-    send_a_message_to: 'envía un mensaje privado a '
+    send_a_message_to: 'Mensaje privado'
     send_a_private_message: "+ Envía un mensaje privado al anunciante"
     sending_this_form: Enviando este formulario, admites haber leido, comprendido, y estás conforme con nuestras
     share_this_ad: Comparte este anuncio
@@ -555,14 +555,15 @@ es:
     update: Guardar
     updating: Estamos actualizando todo el sitio, por lo que en las próximas horas habrá retrasos con los mensajes entre los usuarios, las imágenes de un anuncio y la cantidad de anuncios de los usuarios. No te preocupes que "estamos trabajando en ellou".
     user_ads: anuncios
-    user_edit_profile: Editar perfil de usuario
     user_profile: Perfil de usuario
     username: Nombre de usuario
     users_most_active: usuarios más activos
     users_most_active_last_week: usuarios más activos en la última semana
     view_ads_on: Ver anuncios en %{location_suggest}
     view_ads_on_your_city: Ver anuncios en tu ciudad o pueblo
+    view_messages: Ver mensajes
     view_more_ads: ver más anuncios >
+    view_profile: Ver perfil
     want: busco
     want_to_leave: "¿Quieres borrar tu usuario?"
     we_need_your_password: "(necesitamos tu contraseña para confirmar tus cambios)"
