@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160825201238) do
+ActiveRecord::Schema.define(version: 20160901224820) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20160825201238) do
   end
 
   add_index "blockings", ["blocked_id"], name: "fk_rails_8b7920d779", using: :btree
-  add_index "blockings", ["blocker_id"], name: "fk_rails_feb742f250", using: :btree
+  add_index "blockings", ["blocker_id", "blocked_id"], name: "index_blockings_on_blocker_id_and_blocked_id", unique: true, using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.integer  "ads_id",     limit: 4,     null: false
