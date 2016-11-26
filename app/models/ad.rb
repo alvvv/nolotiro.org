@@ -14,6 +14,7 @@ class Ad < ActiveRecord::Base
 
   belongs_to :user, foreign_key: :user_owner, counter_cache: true
   has_many :comments, foreign_key: :ads_id, dependent: :destroy
+  has_many :reports, dependent: :destroy
 
   validates :title, length: { maximum: 100 }
   validates :body, length: { maximum: 1000 }
@@ -132,5 +133,9 @@ class Ad < ActiveRecord::Base
     touch(:published_at)
 
     reset_readed_count!
+  end
+
+  def reported_by?(user)
+    user.reported_ads.include?(self)
   end
 end

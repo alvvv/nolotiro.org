@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117184138) do
+ActiveRecord::Schema.define(version: 20161126111216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,6 +136,16 @@ ActiveRecord::Schema.define(version: 20161117184138) do
   add_index "receipts", ["notification_id"], name: "idx_16460_index_receipts_on_notification_id", using: :btree
   add_index "receipts", ["receiver_id"], name: "idx_16460_index_receipts_on_receiver_id", using: :btree
 
+  create_table "reports", force: :cascade do |t|
+    t.integer  "ad_id"
+    t.integer  "reporter_id"
+    t.integer  "reason"
+    t.datetime "created_at",  null: false
+  end
+
+  add_index "reports", ["ad_id"], name: "index_reports_on_ad_id", using: :btree
+  add_index "reports", ["reporter_id"], name: "index_reports_on_reporter_id", using: :btree
+
   create_table "states", force: :cascade do |t|
     t.string  "name",       limit: 173, null: false
     t.integer "country_id",             null: false
@@ -195,6 +205,8 @@ ActiveRecord::Schema.define(version: 20161117184138) do
   add_foreign_key "identities", "users", on_update: :restrict, on_delete: :restrict
   add_foreign_key "messages", "conversations", name: "notifications_on_conversation_id", on_update: :restrict, on_delete: :restrict
   add_foreign_key "receipts", "messages", column: "notification_id", name: "receipts_on_notification_id", on_update: :restrict, on_delete: :restrict
+  add_foreign_key "reports", "ads"
+  add_foreign_key "reports", "users", column: "reporter_id"
   add_foreign_key "states", "countries"
   add_foreign_key "towns", "countries"
   add_foreign_key "towns", "states"

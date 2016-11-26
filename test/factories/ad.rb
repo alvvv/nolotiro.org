@@ -37,6 +37,10 @@ FactoryGirl.define do
       status :delivered
     end
 
+    trait :reported do
+      after(:create) { |ad| create(:report, ad: ad) }
+    end
+
     trait(:in_mad) { woeid_code 766_273 }
     trait(:in_bar) { woeid_code 753_692 }
     trait(:in_ten) { woeid_code 773_692 }

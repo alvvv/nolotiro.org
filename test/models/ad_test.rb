@@ -165,4 +165,13 @@ class AdTest < ActiveSupport::TestCase
     ad.move!
     assert_equal true, ad.available?
   end
+
+  test '#reported_by?' do
+    reporter = create(:user)
+    ad = create(:ad)
+    assert_equal false, ad.reported_by?(reporter)
+
+    create(:report, ad: ad, reporter: reporter)
+    assert_equal true, ad.reported_by?(reporter)
+  end
 end

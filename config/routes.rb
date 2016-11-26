@@ -28,6 +28,7 @@ NolotiroOrg::Application.routes.draw do
                       path_names: { new: 'create' },
                       except: [:index, :show] do
         resources :comments, only: :create
+        resources :reports, only: [:new, :create]
       end
 
       constraints(AdConstraint.new) do

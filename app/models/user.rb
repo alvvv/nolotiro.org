@@ -11,6 +11,17 @@ class User < ActiveRecord::Base
   has_many :ads, foreign_key: :user_owner, dependent: :destroy
   has_many :comments, foreign_key: :user_owner, dependent: :destroy
 
+  has_many :reports, foreign_key: :reporter_id, dependent: :destroy
+  has_many :reported_ads,
+           foreign_key: :reporter_id,
+           source: :ad,
+           through: :reports
+
+  has_many :recently_received_reports,
+           -> { merge(Report.recent) },
+           source: :reports,
+           through: :ads
+
   has_many :friendships, dependent: :destroy
   has_many :incoming_friendships, foreign_key: :friend_id,
                                   class_name: 'Friendship',
@@ -157,5 +168,13 @@ class User < ActiveRecord::Base
   def reset_password(*args)
     self.legacy_password_hash = nil
     super
+  end
+
+  def self.max_allowed_reports
+    10
+  end
+
+  def too_many_reports?
+    recently_received_reports.size > self.class.max_allowed_reports
   end
 end
